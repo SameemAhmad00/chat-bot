@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+:root, html.dark {
+  --app-bg: #0E0D10;
+  --surface-bg: #141217;
+  --card-bg: #18151D;
+  --text-main: #FFFFFF;
+  --text-muted: #9E9AA4;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.light, body.light {
+  --app-bg: #F8FAFC;
+  --surface-bg: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+}
+
+html.high-contrast, body.high-contrast {
+  --app-bg: #000000;
+  --surface-bg: #0A0A0A;
+  --card-bg: #000000;
+  --text-main: #FFFFFF;
+  --text-muted: #E5E5E5;
+  --border-color: #FACC15;
+}
+
+@layer base {
+  html.scale-normal {
+    font-size: 16px !important;
+  }
+  html.scale-large {
+    font-size: 18px !important;
+  }
+  html.scale-xlarge {
+    font-size: 20px !important;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Universal High-Visibility Focus Indicators (WCAG AA) */
+  *:focus-visible {
+    outline: 2px solid #f43f5e !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Light mode root background and text */
+  html.light body,
+  html.light #root,
+  html.light main {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+  }
+
+  /* High-contrast mode */
+  html.high-contrast body,
+  html.high-contrast #root,
+  html.high-contrast main {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Light mode overrides for existing hardcoded dark Tailwind classes */
+html.light .bg-\[\#0E0D10\],
+html.light [class*="bg-[#0E0D10]"] {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.light header,
+html.light [class*="bg-[#141217]"] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+html.light [class*="bg-[#18151D]"] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light [class*="bg-[#1A1720]"],
+html.light [class*="bg-[#1C1922]"] {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+html.light [class*="bg-black/40"],
+html.light [class*="bg-white/[0.04]"],
+html.light [class*="bg-white/[0.05]"],
+html.light [class*="bg-white/[0.06]"] {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+html.light [class*="border-white/"] {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .text-white,
+html.light [class*="text-[#EDE8EE]"] {
+  color: #0f172a !important;
+}
+
+html.light .text-neutral-200,
+html.light .text-neutral-300 {
+  color: #334155 !important;
+}
+
+html.light .text-neutral-400 {
+  color: #64748b !important;
+}
+
+/* High Contrast Mode Global Overrides */
+html.high-contrast body,
+html.high-contrast #root,
+html.high-contrast [class*="bg-[#0E0D10]"],
+html.high-contrast [class*="bg-[#141217]"],
+html.high-contrast [class*="bg-[#18151D]"],
+html.high-contrast [class*="bg-[#1A1720]"],
+html.high-contrast [class*="bg-[#1C1922]"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast [class*="border-white/"] {
+  border-color: #facc15 !important;
+}
+
+html.high-contrast .text-neutral-400,
+html.high-contrast .text-neutral-300,
+html.high-contrast .text-neutral-200 {
+  color: #ffffff !important;
+}
+
+html.high-contrast button {
+  border-color: #facc15 !important;
+}
+
+/* Custom scrollbars for chat and file tree */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* Accessible touch target helper */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
