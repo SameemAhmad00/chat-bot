@@ -1,0 +1,6 @@
+{
+  "name": "Persona AI Companion",
+  "description": "An intimate, observable personal AI companion featuring date-wise memory logging, chat screenshot ingestion, brain transparency, and full memory management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
